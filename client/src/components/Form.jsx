@@ -45,22 +45,7 @@ const Form = () => {
       },
       body: JSON.stringify(student),
     });
-    if (res.ok) {
-      window.alert("Your Data has been Submitted Successfully");
-      setStudent({
-        pic: null,
-        name: "",
-        rollNumber: "",
-        department: "",
-        year: "",
-        address: "",
-        contact: "",
-        email: "",
-        resume: null,
-      });
-    } else {
-      window.alert("There was an error submitting your data.");
-    }
+    window.alert("Your data has been submitted Successfully")
   };
 
   return (

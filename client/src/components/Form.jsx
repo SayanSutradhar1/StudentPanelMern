@@ -45,6 +45,17 @@ const Form = () => {
       },
       body: JSON.stringify(student),
     });
+    setStudent({
+      pic:null,
+      name:"",
+      rollNumber:"",
+      department:"",
+      year:"",
+      address:"",
+      contact:"",
+      email:"",
+      resume:null
+    })
     window.alert("Your data has been submitted Successfully")
   };
 

@@ -38,13 +38,6 @@ const Form = () => {
     if (!validator(student)) {
       return;
     }
-    const res = await fetch("/api/data", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(student),
-    });
     setStudent({
       pic:null,
       name:"",
@@ -57,6 +50,13 @@ const Form = () => {
       resume:null
     })
     window.alert("Your data has been submitted Successfully")
+    const res = await fetch("/api/data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(student),
+    });  
   };
 
   return (

@@ -14,19 +14,36 @@ const Form = () => {
     resume: null,
   });
 
-  const imageChange = (e) => {
+  const convertToBase64 = (file)=>{
+    return new Promise((resolve,reject)=>{
+      const fileReader = new FileReader()
+      fileReader.readAsDataURL(file)
+      fileReader.onload = ()=>{
+        resolve(fileReader.result)
+      }
+      fileReader.onerror = (err)=>{
+        reject(err)
+      }
+    })
+  }
+
+  const imageChange = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      setStudent((prev) => ({ ...prev, pic: URL.createObjectURL(file) }));
+    const base64File = await convertToBase64(file)
+    if (base64File) {
+      setStudent((prev) => ({ ...prev, pic: base64File }));
+      console.log(base64File);
     } else {
       return;
     }
   };
 
-  const cvChange = (e) => {
+  const cvChange = async(e) => {
     const file = e.target.files[0];
+    // const base64File = await convertToBase64(file)
     if (file) {
       setStudent((prev) => ({ ...prev, resume: URL.createObjectURL(file) }));
+      // console.log(base64File);
     } else {
       return;
     }
@@ -38,6 +55,7 @@ const Form = () => {
     if (!validator(student)) {
       return;
     }
+    console.log(student);
     setStudent({
       pic:null,
       name:"",

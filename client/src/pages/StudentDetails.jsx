@@ -73,12 +73,9 @@ const StudentList = ({
   handleDelete,
   cv,
 }) => (
-  <div className="py-4 px-2 gap-2 flex-1 flex max-[1300px]:flex-col text-[0.9rem] bg-[rgba(0,0,0,0.7)] text-slate-300 rounded shadow-lg">
-    <div className="p-1 max-w-full h-full">
-      <h1 className="text-red-400">Photo</h1>
-      <a href={pic} target="_blank" className="text-green-600 font-medium">
-        Preview
-      </a>
+  <div className="py-4 px-2 gap-2 flex-1 flex max-[1300px]:flex-col text-[0.9rem] bg-[rgba(0,0,0,0.7)] text-slate-300 rounded shadow-lg min-[1300px]:items-center">
+    <div className="p-1 max-w-full h-full ">
+      <img src={pic} className=" max-h-[70px]"/>
     </div>
     <span className="p-1 flex-1 h-full ">
       <h1 className="text-red-400">Name</h1>
